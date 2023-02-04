@@ -1,0 +1,16 @@
+python -m torch.distributed.launch --nproc_per_node=1 --use_env run_train_meta.py \
+--diff_steps 2000 \
+--lr 0.0001 \
+--learning_steps 40000 \
+--save_interval 2000 \
+--meta_interval 100 \
+--seed 102 \
+--noise_schedule sqrt \
+--hidden_dim 128 \
+--bsz 512 --microbatch 256 \
+--dataset e2e \
+--data_dir datasets/e2e \
+--vocab pretrained_emb/bert_reduced \
+--seq_len 128 \
+--schedule_sampler lossaware \
+--notes e2e
